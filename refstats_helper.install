@@ -7,9 +7,9 @@ function refstats_helper_install() {
   //get info about all vocabularies
   $vocabs = taxonomy_vocabulary_get_names();
   //set vids of the vocabularies we care about
-  $branch_or_unit_vid = $vocabs['branch_or_unit']['vid'];
-  $patron_status_vid = $vocabs['patron_status']['vid'];
-  $service_point_vid = $vocabs['service_point']['vid'];
+  $branch_or_unit_vid = $vocabs['branch_or_unit']->'vid';
+  $patron_status_vid = $vocabs['patron_status']->'vid';
+  $service_point_vid = $vocabs['service_point']->'vid';
   //declare arrays for our terms
   $branch_or_unit_terms = array('Branch A', 'Branch B', 'Branch C', 'Branch D', 'Unit A', 'Unit B', 'Unit C', 'Unit D');
   $patron_status_terms = array('Student', 'Faculty', 'Staff', 'Visitor', 'Alumni');
