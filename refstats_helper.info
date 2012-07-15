@@ -6,6 +6,7 @@ version = 7.x-1.0-alpha1
 project = refstats_helper
 dependencies[] = ctools
 dependencies[] = strongarm
+dependencies[] = refstats
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:1
 features[variable][] = clean_url
