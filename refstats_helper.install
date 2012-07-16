@@ -7,32 +7,33 @@ function refstats_helper_install() {
   //get info about all vocabularies
   $vocabs = taxonomy_vocabulary_get_names();
   //set vids of the vocabularies we care about
-  $branch_or_unit_vid = $vocabs['branch_or_unit']->'vid';
-  $patron_status_vid = $vocabs['patron_status']->'vid';
-  $service_point_vid = $vocabs['service_point']->'vid';
+  $branch_or_unit_vid = $vocabs['branch_or_unit']->vid;
+  $patron_status_vid = $vocabs['patron_status']->vid;
+  $service_point_vid = $vocabs['service_point']->vid;
   //declare arrays for our terms
   $branch_or_unit_terms = array('Branch A', 'Branch B', 'Branch C', 'Branch D', 'Unit A', 'Unit B', 'Unit C', 'Unit D');
   $patron_status_terms = array('Student', 'Faculty', 'Staff', 'Visitor', 'Alumni');
   $service_point_terms = array('Circulation Desk', 'Reference Desk', 'Office');
   //save our terms for Branch or Unit into the proper vocabulary
   foreach ($branch_or_unit_terms as $branch_or_unit_term) {
-    $term = array();
-    $term['vid'] = $branch_or_unit_vid;
-    $term['name'] = $branch_or_unit_term;
+    $term = new stdClass();
+    $term->vid = $branch_or_unit_vid;
+    $term->name = $branch_or_unit_term;
     taxonomy_term_save($term);
   }
   //save our terms for Patron Status into the proper vocabulary
   foreach ($patron_status_terms as $patron_status_term) {
-    $term = array();
-    $term['vid'] = $patron_status_vid;
-    $term['name'] = $patron_status_term;
-    taxonomy_term_save($term);
+    $term = new stdClass();
+    $term->vid = $patron_status_vid;
+    $term->name = $patron_status_term;
+   taxonomy_term_save($term);
   }
   //save our terms for Branch or Unit into the proper vocabulary
   foreach ($service_point_terms as $service_point_term) {
-    $term = array();
-    $term['vid'] = $service_point_vid;
-    $term['name'] = $service_point_term;
+    $term = new stdClass();
+    $term->vid = $service_point_vid;
+    $term->name = $service_point_term;
     taxonomy_term_save($term);
   }
 }
+
