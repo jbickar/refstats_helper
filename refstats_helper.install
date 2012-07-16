@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /*
  * Implements hook_install().
@@ -15,25 +15,30 @@ function refstats_helper_install() {
   $patron_status_terms = array('Student', 'Faculty', 'Staff', 'Visitor', 'Alumni');
   $service_point_terms = array('Circulation Desk', 'Reference Desk', 'Office');
   //save our terms for Branch or Unit into the proper vocabulary
-  foreach ($branch_or_unit_terms as $branch_or_unit_term) {
-    $term = new stdClass();
-    $term->vid = $branch_or_unit_vid;
-    $term->name = $branch_or_unit_term;
-    taxonomy_term_save($term);
+  if(!empty($branch_or_unit_vid)){
+    foreach ($branch_or_unit_terms as $branch_or_unit_term) {
+      $term = new stdClass();
+      $term->vid = $branch_or_unit_vid;
+      $term->name = $branch_or_unit_term;
+      taxonomy_term_save($term);
+    }
   }
   //save our terms for Patron Status into the proper vocabulary
-  foreach ($patron_status_terms as $patron_status_term) {
-    $term = new stdClass();
-    $term->vid = $patron_status_vid;
-    $term->name = $patron_status_term;
-   taxonomy_term_save($term);
+  if(!empty($patron_status_vid)){
+    foreach ($patron_status_terms as $patron_status_term) {
+      $term = new stdClass();
+      $term->vid = $patron_status_vid;
+      $term->name = $patron_status_term;
+     taxonomy_term_save($term);
+    }
   }
   //save our terms for Branch or Unit into the proper vocabulary
-  foreach ($service_point_terms as $service_point_term) {
-    $term = new stdClass();
-    $term->vid = $service_point_vid;
-    $term->name = $service_point_term;
-    taxonomy_term_save($term);
+  if(!empty($service_point_vid)){
+    foreach ($service_point_terms as $service_point_term) {
+      $term = new stdClass();
+      $term->vid = $service_point_vid;
+      $term->name = $service_point_term;
+      taxonomy_term_save($term);
+    }
   }
 }
-
